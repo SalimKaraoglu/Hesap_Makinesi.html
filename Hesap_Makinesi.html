@@ -22,62 +22,39 @@
                 <h1>JQuery Örnekleri</h1>
             </div>
         </div>
-        <!-- <hr> -->
-        <!-- <div class="row">
-            <div class="col-md-8">
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Faktoriyel Hesaplama</h4>
+                        <h4 class="card-title">Hesap Makinesi</h4>
                     </div>
                     <div class="card-body">
                         <div>
-                            <label>Sayı: <input type="number" id="deger"></label>
-                            <label id="sonuc" class="alert alert-info">Sonuc: </label>
+                            <label class="col-md-8 ">Sayı1 : <input type="number" id="deger"></label>
+                            <label class="col-md-8 mt-3">Sayi2 : <input type="number" id="sayi1"></label>
+                            <label class="col-md-8 mt-3">Sayi3 : <input type="number" id="sayi2"></label>
+
+                            <div class="col-md-12">
+                                <h3 class="col-md-4">Sonuç: </h3>
+                                <h3 id="sonuc" class="alert alert-info col-md-8 "></h3>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
                         <div class="float-end">
-                            <button class="btn btn-outline-success" id="hesapla">Faktoriyel Hesaplama</button>
+                            <button class="btn btn-outline-success" id="topla">Topla</button>
+                            <button class="btn btn-outline-success" id="cikar">Çıkar</button>
+                            <button class="btn btn-outline-success" id="faktoriyel">Faktoriyel</button>
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <!-- <div class="col-md-8">
-                <h3>Sonuç: </h3>
-                <h3 id="sonuc" class="alert alert-info">0</h3>
-            </div> -->
-            <hr>
+            </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Hesap Makinesi</h4>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <label class="col-md-8 ms-1">Sayı : <input type="number" id="deger"></label>
-                                <!-- <label id="sonuc" class="alert alert-info">Sonuc: </label> -->
-                                <label class="col-md-8 mt-2">Sayi1: <input type="number" id="sayi1"></label>
-                                <label class="col-md-8 mt-2">Sayi2: <input type="number" id="sayi2"></label>
-
-                                <div class="col-md-12">
-                                    <h3 class="col-md-4">Sonuç: </h3>
-                                    <h3 id="sonuc" class="alert alert-info col-md-8 "></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="float-end">
-                                <button class="btn btn-outline-success" id="topla">Topla</button>
-                                <button class="btn btn-outline-success" id="cikar">Çıkar</button>
-                                <button class="btn btn-outline-success" id="faktoriyel">Faktoriyel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
+                <h4> Not: Faktoriyel hesaplaması için "Sayı1" verisini Giriniz!!! </h4>
             </div>
         </div>
+    </div>
     </div>
 
     <script>
@@ -88,7 +65,25 @@
         });
 
         $(function () {
-            $("#hesapla").on("click", function () {
+            $("#topla").on("click", function () {
+                var sayi1 = Number($("#sayi1").val());
+                var sayi2 = Number($("#sayi2").val());
+
+                var topla = sayi1 + sayi2;
+                var cikar = sayi1 - sayi2;
+
+                $("#topla").on("click", function () {
+                    $("#sonuc").html(topla);
+                })
+
+                $("#cikar").on("click", function () {
+                    $("#sonuc").html(cikar);
+                })
+            })
+        })
+
+        $(function () {
+            $("#faktoriyel").on("click", function () {
                 var sayi = Number($("#deger").val());
                 var faktoriyel = 1;
 
@@ -98,6 +93,7 @@
                 $("#sonuc").html(faktoriyel);
             })
         })
+
 
 
 
